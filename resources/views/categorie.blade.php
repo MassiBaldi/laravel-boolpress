@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>Ultimi post</h1>
+        <h1>Tutti i post della categoria: {{ $category->title }}</h1>
         <table class="table">
           <thead>
             <tr>
@@ -13,7 +13,6 @@
               <th>Autore</th>
               <th>Content</th>
               <th>Nome Categoria</th>
-              <th>Visualizza</th>
             </tr>
           </thead>
           <tbody>
@@ -24,9 +23,6 @@
                 <td>{{ $post->author }}</td>
                 <td>{{ str_limit($post->content, 10, ' (...)') }}</td>
                 <td>{{ $post->category->title }}</td>
-                <td>
-                  <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Visualizza</a>
-                </td>
               </tr>
             @empty
               <h2>Non ci sono Post</h2>
