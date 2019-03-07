@@ -5,6 +5,17 @@
     <div class="row">
       <div class="col-12">
         <h1>Ultimi post</h1>
+        <form class="form-group" action="{{ route('home.indexByCategory') }}" method="get">
+          <div class="form-group">
+            <label for="category_id">Filtra Posts per Categoria</label>
+            <select class="form-control"name="category_id">
+              @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->title }}</option>
+              @endforeach
+            </select>
+            <input class="form-control btn btn-success" type="submit" value="Filtra" />
+          </div>
+        </form>
         <table class="table">
           <thead>
             <tr>
